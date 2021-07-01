@@ -6,12 +6,12 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 
-namespace Piwik\Plugins\AjaxOptOut;
+namespace Piwik\Plugins\TrackingOptOut;
 
 use Piwik\Tracker\IgnoreCookie;
 
 /**
- * API for plugin AjaxOptOut
+ * API for plugin TrackingOptOut
  * @method static API getInstance()
  */
 class API extends \Piwik\Plugin\API {
@@ -20,7 +20,7 @@ class API extends \Piwik\Plugin\API {
     /**
      * This method will return whether the user is tracked or not.
      *
-     * Call: index.php?module=API&method=AjaxOptOut.isTracked
+     * Call: index.php?module=API&method=TrackingOptOut.isTracked
      *
      * @return int
      */
@@ -34,7 +34,7 @@ class API extends \Piwik\Plugin\API {
     /**
      * Sets the ignore cookie, so the user is not tracked through piwik any longer.
      *
-     * Call: index.php?module=API&method=AjaxOptOut.doIgnore
+     * Call: index.php?module=API&method=TrackingOptOut.doIgnore
      *
      * @return void
      */
@@ -51,7 +51,7 @@ class API extends \Piwik\Plugin\API {
     /**
      * removes the ignore cookie, so the user is tracked through piwik from now on.
      *
-     * Call: index.php?module=API&method=AjaxOptOut.doTrack
+     * Call: index.php?module=API&method=TrackingOptOut.doTrack
      *
      * @return void
      */
