@@ -8,6 +8,7 @@
 
 namespace Piwik\Plugins\TrackingOptOut;
 
+use Piwik\Plugins\PrivacyManager\DoNotTrackHeaderChecker;
 use Piwik\Tracker\IgnoreCookie;
 
 /**
@@ -15,49 +16,57 @@ use Piwik\Tracker\IgnoreCookie;
  * @method static API getInstance()
  */
 class API extends \Piwik\Plugin\API {
-
-
     /**
      * This method will return whether the user is tracked or not.
      *
      * Call: index.php?module=API&method=TrackingOptOut.isTracked
      *
-     * @return int
+     * @return array
      */
-    public function isTracked () {
-        $ret = !IgnoreCookie::isIgnoreCookieFound();
+    public function isTracked()
+    {
+        $isTracked = !IgnoreCookie::isIgnoreCookieFound();
+        $isDoNotTrackPresent = $this->isDoNotTrackPresent();
 
-        return $ret;
+        return ["isTracked": ($isTracked && !$isDoNotTrackPresent), "isDoNotTrackPresent": $isDoNotTrackPresent];
     }
 
-
     /**
-     * Sets the ignore cookie, so the user is not tracked through piwik any longer.
+     * Sets the ignore cookie, so the user is not tracked any longer.
      *
      * Call: index.php?module=API&method=TrackingOptOut.doIgnore
      *
      * @return void
      */
-    public function doIgnore () {
+    public function doIgnore()
+    {
         // Do nothing if the cookie already is set.
-        if (IgnoreCookie::isIgnoreCookieFound()) {
+        if (IgnoreCookie::isIgnoreCookieFound() || $this->isDoNotTrackPresent()) {
             return;
         }
 
         IgnoreCookie::setIgnoreCookie();
     }
 
-
     /**
-     * removes the ignore cookie, so the user is tracked through piwik from now on.
+     * Removes the ignore cookie, so the user is tracked from now on.
      *
      * Call: index.php?module=API&method=TrackingOptOut.doTrack
      *
      * @return void
      */
-    public function doTrack () {
+    public function doTrack()
+    {
         IgnoreCookie::getIgnoreCookie()->delete();
     }
 
-
+    /**
+     * Returns whether or not a Do Not Track header is present.
+     *
+     * @return boolean
+     */
+    private function isDoNotTrackPresent()
+    {
+        return new DoNotTrackHeaderChecker()->isDoNotTrackFound();
+    }
 }
