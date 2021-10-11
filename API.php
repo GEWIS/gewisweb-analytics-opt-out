@@ -67,6 +67,6 @@ class API extends \Piwik\Plugin\API {
      */
     private function isDoNotTrackPresent()
     {
-        return new DoNotTrackHeaderChecker()->isDoNotTrackFound();
+        return (new DoNotTrackHeaderChecker())->isDoNotTrackFound();
     }
 }
