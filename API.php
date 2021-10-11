@@ -28,7 +28,7 @@ class API extends \Piwik\Plugin\API {
         $isTracked = !IgnoreCookie::isIgnoreCookieFound();
         $isDoNotTrackPresent = $this->isDoNotTrackPresent();
 
-        return ["isTracked": ($isTracked && !$isDoNotTrackPresent), "isDoNotTrackPresent": $isDoNotTrackPresent];
+        return ["isTracked" => ($isTracked && !$isDoNotTrackPresent), "isDoNotTrackPresent" => $isDoNotTrackPresent];
     }
 
     /**
