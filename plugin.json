@@ -1,10 +1,10 @@
 {
-    "name":        "TrackingOptOut",
-    "description": "Provide endpoints to opt-out, opt-in or get status of visitors tracking. So you can implement a custom HTML, CSS and JS to realize custom-style tracking management.",
-    "version":     "v1.0.2-gewisweb",
+    "name":        "AnalyticsOptOut",
+    "description": "Provide endpoints to opt-out, opt-in or get status of visitors analytics. So you can implement a custom HTML, CSS and JS to realize custom-style tracking management.",
+    "version":     "v1.0.3-gewisweb",
     "theme":       false,
     "require": {
-        "piwik": ">=4.0.0,<5.0.0",
+        "piwik": ">=4.0.0,<6.0.0",
         "php":   ">=7.0.0"
     },
     "authors":     [
@@ -34,7 +34,7 @@
     "keywords":    [
         "opt out",
         "opt in",
-        "tracking",
+        "analytics",
         "ajax"
     ]
 }
