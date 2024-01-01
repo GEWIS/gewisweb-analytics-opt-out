@@ -6,8 +6,8 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 
-namespace Piwik\Plugins\TrackingOptOut;
+namespace Piwik\Plugins\AnalyticsOptOut;
 
-class TrackingOptOut extends \Piwik\Plugin {
+class AnalyticsOptOut extends \Piwik\Plugin {
 
 }

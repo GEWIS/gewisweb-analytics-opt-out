@@ -6,20 +6,20 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 
-namespace Piwik\Plugins\TrackingOptOut;
+namespace Piwik\Plugins\AnalyticsOptOut;
 
 use Piwik\Plugins\PrivacyManager\DoNotTrackHeaderChecker;
 use Piwik\Tracker\IgnoreCookie;
 
 /**
- * API for plugin TrackingOptOut
+ * API for plugin AnalyticsOptOut
  * @method static API getInstance()
  */
 class API extends \Piwik\Plugin\API {
     /**
      * This method will return whether the user is tracked or not.
      *
-     * Call: index.php?module=API&method=TrackingOptOut.isTracked
+     * Call: index.php?module=API&method=AnalyticsOptOut.isTracked
      *
      * @return array
      */
@@ -34,7 +34,7 @@ class API extends \Piwik\Plugin\API {
     /**
      * Sets the ignore cookie, so the user is not tracked any longer.
      *
-     * Call: index.php?module=API&method=TrackingOptOut.doIgnore
+     * Call: index.php?module=API&method=AnalyticsOptOut.doIgnore
      *
      * @return void
      */
@@ -51,7 +51,7 @@ class API extends \Piwik\Plugin\API {
     /**
      * Removes the ignore cookie, so the user is tracked from now on.
      *
-     * Call: index.php?module=API&method=TrackingOptOut.doTrack
+     * Call: index.php?module=API&method=AnalyticsOptOut.doTrack
      *
      * @return void
      */
